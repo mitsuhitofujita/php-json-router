@@ -11,7 +11,6 @@
             "email": "mitsuhitofujita@gmail.com"
         }
     ],
-    "require": {},
     "scripts": {
         "test": [
             "phpunit"
@@ -19,5 +18,13 @@
         "sample": [
             "php src/Sample.php"
         ]
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.31"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     }
 }
