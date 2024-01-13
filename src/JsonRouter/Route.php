@@ -15,8 +15,6 @@ class Route
         return new Route($data);
     }
 
-    private array $unmatchSchemas = [];
-
     public function __construct(private array $data)
     {
     }

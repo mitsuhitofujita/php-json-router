@@ -2,19 +2,18 @@
 
 namespace JsonRouter;
 
-use JsonRouter\Field\Listable;
 use JsonRouter\Field\Value;
 use JsonRouter\Field\Undefined;
+use JsonRouter\Schema\FieldCollectable;
 
 class Schema
 {
+    use FieldCollectable;
+
     public static function create(mixed $data): Schema
     {
         return new self($data);
     }
-
-    /** @var array<Field> */
-    private array $fields;
 
     public function __construct(private mixed $data)
     {
@@ -27,20 +26,23 @@ class Schema
         return $field;
     }
 
-    public function addField(Field $field): void
+    public function hasMatch(): bool
     {
-        $this->fields[] = $field;
+        foreach ($this->getFields() as $field) {
+            if (!$this->hasMatchFieldList($field)) {
+                return false;
+            }
+        }
+        return true;
     }
 
-    public function hasMatch()
+    private function hasMatchFieldList(Field $field): bool
     {
-        foreach ($this->fields as $field) {
-            while ($field !== null) {
-                if (!$field->hasMatch()) {
-                    return false;
-                }
-                $field = $field->getNextField();
+        while ($field !== null) {
+            if (!$field->hasMatch()) {
+                return false;
             }
+            $field = $field->getNextField();
         }
         return true;
     }
