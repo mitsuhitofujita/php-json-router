@@ -1,0 +1,23 @@
+{
+    "name": "mitsuhitofujita/php-json-router",
+    "autoload": {
+        "psr-4": {
+            "JsonRouter\\": "src/JsonRouter"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mitsuhito Fujita",
+            "email": "mitsuhitofujita@gmail.com"
+        }
+    ],
+    "require": {},
+    "scripts": {
+        "test": [
+            "phpunit"
+        ],
+        "sample": [
+            "php src/Sample.php"
+        ]
+    }
+}
