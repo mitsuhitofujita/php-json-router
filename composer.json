@@ -13,7 +13,7 @@
     ],
     "scripts": {
         "test": [
-            "phpunit"
+            "pest"
         ],
         "sample": [
             "php src/Sample.php"

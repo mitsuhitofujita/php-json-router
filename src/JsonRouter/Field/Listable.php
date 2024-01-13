@@ -3,7 +3,6 @@
 namespace JsonRouter\Field;
 
 use JsonRouter\Field;
-use JsonRouter\Schema;
 
 trait Listable
 {
